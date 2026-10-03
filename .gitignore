@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.png
+*.jpg
+*.zip
+*.ipa
+.env*
+build/
+dist/
+Payload/
+*.xcuserstate
+xcuserdata/
+.DS_Store

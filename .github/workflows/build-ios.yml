@@ -1,0 +1,44 @@
+name: Build iPhone IPA
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build for iPhone without developer signing
+        run: |
+          set -euo pipefail
+          xcodebuild -version
+          xcodebuild \
+            -project ios/VRCPhoneCamera.xcodeproj \
+            -scheme VRCPhoneCamera \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY= \
+            build
+      - name: Package IPA for LiveContainer
+        run: |
+          set -euo pipefail
+          mkdir -p dist/Payload
+          cp -R build/Build/Products/Release-iphoneos/VRCPhoneCamera.app dist/Payload/
+          cd dist
+          zip -qr VRCPhoneCamera-LiveContainer.ipa Payload
+          shasum -a 256 VRCPhoneCamera-LiveContainer.ipa > SHA256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: VRCPhoneCamera-LiveContainer
+          path: |
+            dist/VRCPhoneCamera-LiveContainer.ipa
+            dist/SHA256.txt
+          if-no-files-found: error
+          retention-days: 14
