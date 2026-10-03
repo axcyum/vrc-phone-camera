@@ -276,7 +276,7 @@ class Bridge:
                 frame = None
                 if source == 'spout' and receiver:
                     if not wanted:
-                        matches = [n for n in self.spout_senders if 'vrchat' in n.lower()]
+                        matches = [n for n in self.spout_senders if 'vrchat' in n.lower() or n.lower().startswith('vrcsender')]
                         if not matches:
                             self.video_error = 'VRChatのSpout出力を待っています。カメラUIのSpout StreamをONにしてください。'
                             self.stop.wait(0.1)

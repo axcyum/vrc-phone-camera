@@ -23,7 +23,7 @@ Safariの操作画面でトラッカー選択、基準合わせ、追従、撮�
 SpoutGLでVRChatのSpout映像を直接読み取り、MJPEGでSafari／iOSアプリへ転送します。OBSは不要です。
 
 1. VRChatのカメラUIを開き、StreamモードとSpout StreamをON。
-2. 画面のSpout出力欄でVRChatのカメラ出力を選択し「Spout映像ON」。自動選択は名前にVRChatを含む出力を選びます。
+2. 画面のSpout出力欄でVRChatのカメラ出力を選択し「Spout映像ON」。自動選択はVRCSender系／名前にVRChatを含む出力を選びます。
 3. 「Spout映像ON」はOSCでStreamモードとSpout StreamのONも指示します。反映されない場合はVRChat内のUIで手動設定してください。
 4. 停止は「映像OFF」。別デバイスを使う場合は折りたたみ欄からOBS Virtual Cameraなどを選べます。
 
@@ -33,7 +33,7 @@ SpoutGLでVRChatのSpout映像を直接読み取り、MJPEGでSafari／iOSアプ
 
 画面の「撮影」はSafari／アプリの両方で使えます。本体の音量↑・↓は付属の `ios/VRCPhoneCamera.xcodeproj` アプリで使います。手順・制約は `ios/README.md` を参照してください。
 本体ボタンのAPIは実カメラが動作する前景アプリでのみ使えるため、ON中は実カメラを小窓で表示します。実カメラ映像は保存・送信しません。
-WindowsではiOSアプリをビルドできず、現時点ではソース提供までです。ネイティブアプリのコンパイル・実機検証は未実施です。
+Windowsでは直接ビルドできないため、GitHub ActionsのmacOSでビルドします。初回のiPhone向けコンパイルとIPA作成は成功しました。LiveContainer上の実機動作は未検証です。
 
 ## 仕様と制限
 
