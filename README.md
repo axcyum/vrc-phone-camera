@@ -68,7 +68,6 @@ HTTP既定ポート: 8765。SteamVR実機からトラッカーの検出・有効
 
 - VRChatカメラOSC: https://docs.vrchat.com/docs/vrchat-202533
 - OSCポートと有効化: https://docs.vrchat.com/docs/osc-overview
-- 公式Wiki（Pose型・ドキュメントの食い違い）: https://wiki.vrchat.com/wiki/OSC
 - Spout/Windows PCVR: https://docs.vrchat.com/docs/vrchat-202433-openbeta
 - OpenVR Tracking API: https://github.com/ValveSoftware/openvr/wiki/IVRSystem%3A%3AGetDeviceToAbsoluteTrackingPose
 - Python OpenVR bindings: https://github.com/cmbruns/pyopenvr
